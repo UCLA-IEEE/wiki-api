@@ -91,7 +91,18 @@ pageRouter.put("/page/:slug", updatePageWithSlug)
 
 function updatePageWithSlug(req, res) {
   // TODO: Implement this
-  return res.send(c.MessageOK)
+  Page.findOne({ slug: req.params.slug })
+    .then(page => {
+      updatedPage = Object.assign(page, req.body)
+
+      updatedPage
+        .save()
+        .then(() => res.send(c.MessageOK))
+        .catch(err => res.status(c.StatusInternalError).send(err))
+    })
+    .catch(err => {
+      return res.status(c.StatusInternalError).send(err)
+    })
 }
 
 /**

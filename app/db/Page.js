@@ -14,6 +14,7 @@ const Page = new mongoose.Schema(
   {
     title: { type: String, required: true, minLength: 1 },
     slug: { type: String, required: true, minLength: 1 },
+    content: { type: String, required: true, minLength: 1 },
 
     contributors: { type: [String], default: [] },
 
@@ -21,7 +22,7 @@ const Page = new mongoose.Schema(
 
     comments: { type: [Comment], default: [] },
 
-    content: { type: String, required: true, minLength: 1 }
+    description: { type: String, default: "" }
   },
   { timestamps: true }
 )
