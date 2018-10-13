@@ -90,7 +90,6 @@ function createPage(req, res) {
 pageRouter.put("/page/:slug", updatePageWithSlug)
 
 function updatePageWithSlug(req, res) {
-  // TODO: Implement this
   Page.findOne({ slug: req.params.slug })
     .then(page => {
       updatedPage = Object.assign(page, req.body)
