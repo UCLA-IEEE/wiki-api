@@ -2,7 +2,7 @@
 const devConfig = require("./development.json")
 
 // prodConfig contains production level configuration variables
-const prodConfnig = {
+const prodConfig = {
   DB_URI: process.env.DB_URI
 }
 
